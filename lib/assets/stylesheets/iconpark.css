@@ -1,0 +1,71 @@
+@property --iconpark-stroke-width {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 4;
+}
+
+@property --iconpark-stroke-line-cap {
+  syntax: "butt | round | square";
+  inherits: true;
+  initial-value: round;
+}
+
+@property --iconpark-stroke-line-join {
+  syntax: "miter | round | bevel";
+  inherits: true;
+  initial-value: round;
+}
+
+@property --iconpark-stroke-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: currentcolor;
+}
+
+@property --iconpark-fill-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, currentcolor 40%, transparent);
+}
+
+@property --iconpark-inner-stroke-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, currentcolor 50%, black);
+}
+
+@property --iconpark-inner-fill-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: color-mix(in srgb, currentcolor 70%, white);
+}
+
+svg.ip {
+  &.outline {
+    --iconpark-color-0: var(--iconpark-stroke-color);
+    --iconpark-color-1: transparent;
+    --iconpark-color-2: var(--iconpark-stroke-color);
+    --iconpark-color-3: transparent;
+  }
+
+  &.filled {
+    --iconpark-color-0: var(--iconpark-stroke-color);
+    --iconpark-color-1: var(--iconpark-stroke-color);
+    --iconpark-color-2: white;
+    --iconpark-color-3: white;
+  }
+
+  &.two-tone {
+    --iconpark-color-0: var(--iconpark-stroke-color);
+    --iconpark-color-1: var(--iconpark-fill-color);
+    --iconpark-color-2: var(--iconpark-stroke-color);
+    --iconpark-color-3: var(--iconpark-fill-color);
+  }
+
+  &.multi-color {
+    --iconpark-color-0: var(--iconpark-stroke-color);
+    --iconpark-color-1: var(--iconpark-fill-color);
+    --iconpark-color-2: var(--iconpark-inner-stroke-color);
+    --iconpark-color-3: var(--iconpark-inner-fill-color);
+  }
+}
