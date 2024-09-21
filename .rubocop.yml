@@ -1,0 +1,24 @@
+require: rubocop-rake
+
+AllCops:
+  NewCops: enable
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/MethodDefParentheses:
+  Enabled: false
+
+Gemspec/OrderedDependencies:
+  Enabled: false
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+Gemspec/RequireMFA:
+  Enabled: false
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec

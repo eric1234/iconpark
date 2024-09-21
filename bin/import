@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+import fs from 'fs/promises'
+import { load } from 'cheerio'
+import kebabCase from 'lodash.kebabcase'
+import * as icons from '@icon-park/svg'
+
+// Getting a list of all icons is not something the library can do. But since
+// each icon is a function we can just have a list of non-icon functions to
+// ignore.
+const ignore = ['__esModule', 'default', 'setConfig', 'DEFAULT_ICON_CONFIGS']
+
+const promises = []
+for (const [name, icon] of Object.entries(icons)) {
+  if( ignore.includes(name) ) continue
+  const id = kebabCase(name)
+
+  // Generate icon using library but instead of giving hard-coded values, use
+  // CSS variables so customization happens by the including page. Do have some
+  // fallbacks in case viewed outside the context of a HTML page (won't work in
+  // all SVG renderers but it at least helps).
+  const svg = icon({
+    theme: 'multi-color',
+    strokeWidth: 'var(--iconpark-stroke-width, 4)',
+    strokeLinecap: 'var(--iconpark-stroke-line-cap, round)',
+    strokeLinejoin: 'var(--iconpark-stroke-line-join, round)',
+    fill: [
+      'var(--iconpark-color-0, currentcolor)',
+      'var(--iconpark-color-1, transparent)',
+      'var(--iconpark-color-2, currentcolor)',
+      'var(--iconpark-color-3, transparent)',
+    ],
+  })
+
+  // Further tweak the SVG
+  const $ = load(svg, { xml: true })
+  const $svg = $('svg')
+
+  // Set the `id` so the SVG `use` element can import it
+  $svg.attr('id', id)
+
+  // Let the container (HTML or SVG importing) determine the size
+  $svg.removeAttr('width')
+  $svg.removeAttr('height')
+
+  // Write final icon out to disk
+  promises.push(fs.writeFile(`vendor/assets/images/${id}.svg`, $.html()))
+}
+
+// Wait for all icon writes to finish before exiting the script
+await Promise.all(promises)
+
+console.log('Icons imported')

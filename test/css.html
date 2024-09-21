@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS/Icon Test</title>
+    <link rel="stylesheet" href="stylesheets/iconpark.css">
+    <style>
+      body { display: flex; justify-content: center; background-color: Snow }
+      tbody {
+        th { text-align: right }
+        td {
+          text-align: center;
+          .color { width: 2em; height: 2em; border: thin solid black; margin: 0 auto }
+        }
+        .inline-block { display: inline-block }
+        .rotated { transform: rotate(-90deg) }
+        .color, .light { color: DarkTurquoise }
+        .dark { color: PaleTurquoise; background-color: Teal }
+        .stroke-color { background-color: var(--iconpark-stroke-color) }
+        .fill-color { background-color: var(--iconpark-fill-color) }
+        .inner-stroke-color { background-color: var(--iconpark-inner-stroke-color) }
+        .inner-fill-color { background-color: var(--iconpark-inner-fill-color) }
+      }
+      svg { width: 5em; height: 5em }
+    </style>
+  </head>
+  <body>
+    <main>
+      <details>
+        <summary>Overview</summary>
+
+        <p>
+          The goal of this file is to test out the iconpark.css file distributed
+          with the gem to make sure it's a reasonable starting place. To view
+          run <code>rake test</code>.
+
+        <p>
+          The icons provided by iconpark supports up to 4 different "themes" but
+          not all icons make use of these themes. Therefore I'm going to show a
+          grid of an example icon that is naturally one of each theme on each
+          column, but then the row is the applied theme. Each intersection of
+          that grid will show the icon on both with a dark background and a
+          light background.
+        </p>
+
+        <p>
+          The icons are purposely over-sized to make the detail more obvious.
+          Also this file is not actually using the asset pipeline but instead a
+          special test server and plain HTML for simplicity.
+        </p>
+      </details>
+
+      <details open>
+        <summary>Test</summary>
+
+        <table>
+          <thead>
+            <tr><th colspan="12">Inherent Theme</th></tr>
+            <tr>
+              <th colspan="2"></th>
+              <th>Colors</th>
+              <th colspan="2">Outline</th>
+              <th colspan="2">Filled</th>
+              <th colspan="2">Two-tone</th>
+              <th colspan="2">Multi-color</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th class="rotated" rowspan="4">Configured Theme</th>
+              <th>Outline</th>
+              <td><div class="color stroke-color"></div> Stroke</td>
+              <td class="light">
+                <svg class="ip outline">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip outline">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip outline">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip outline">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip outline">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip outline">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip outline">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip outline">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Filled</th>
+              <td><div class="color stroke-color"></div> Stroke</td>
+              <td class="light">
+                <svg class="ip filled">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip filled">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip filled">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip filled">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip filled">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip filled">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip filled">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip filled">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Two-tone</th>
+              <td>
+                <div class="inline-block"><div class="color stroke-color"></div> Stroke</div>
+                <div class="inline-block"><div class="color fill-color"></div> Fill</div>
+              </td>
+              <td class="light">
+                <svg class="ip two-tone">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip two-tone">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip two-tone">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip two-tone">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip two-tone">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip two-tone">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip two-tone">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip two-tone">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Multi-color</th>
+              <td>
+                <div>
+                  Outer
+                  <div class="inline-block"><div class="color stroke-color"></div> Stroke</div>
+                  <div class="inline-block"><div class="color fill-color"></div> Fill</div>
+                </div>
+                <div>
+                  Inner
+                  <div class="inline-block"><div class="color inner-stroke-color"></div> Stroke</div>
+                  <div class="inline-block"><div class="color inner-fill-color"></div> Fill</div>
+                </div>
+              </td>
+              <td class="light">
+                <svg class="ip multi-color">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip multi-color">
+                  <use href="images/power.svg#power">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip multi-color">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip multi-color">
+                  <use href="images/star-one.svg#star-one">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip multi-color">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip multi-color">
+                  <use href="images/like.svg#like">
+                </svg>
+              </td>
+              <td class="light">
+                <svg class="ip multi-color">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+              <td class="dark">
+                <svg class="ip multi-color">
+                  <use href="images/save-one.svg#save-one">
+                </svg>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </main>
+
+  </body>
+</html>
+

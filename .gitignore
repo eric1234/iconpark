@@ -1,0 +1,9 @@
+/node_modules
+/vendor/assets/images/*.svg
+/.bundle/
+/.yardoc
+/_yardoc/
+/doc/
+/pkg/
+/tmp/
+Gemfile.lock
