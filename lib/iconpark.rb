@@ -1,4 +1,5 @@
 module Iconpark
+  mattr_accessor :default_theme, default: 'outline'
 end
 
 require_relative "iconpark/version"

@@ -52,7 +52,7 @@ iconpark. On their website you can customize the:
 
 This integration lets you customize most of these factors via CSS variables. If
 you do no customization and don't even use the provided CSS file, then the icons
-will display with the above indicated defaults. The stroke color will be
+will display with the above indicated defaults. The color will be
 "currentcolor" (i.e. text color).
 
 The included CSS file provides two things:
@@ -65,6 +65,13 @@ parameter. For example:
 
 ```erb
 <%= icon 'save', theme: 'two-tone' %>
+```
+
+You can override the default theme (theme used when not specified in to the
+`icon` helper) by adding the following to an initializer:
+
+```ruby
+Iconpark.default_theme = 'two-tone'
 ```
 
 For all other customization is done via custom CSS properties:
@@ -81,12 +88,12 @@ The colors CSS properties depend on what theme you are using.
   * `--iconpark-stroke-color` - Default to `currentcolor`
 * `two-tone`
   * `--iconpark-stroke-color` - Defaults to `currentcolor`
-  * `--iconpark-fill-color` - Defaults to 20% alpha of stroke color
+  * `--iconpark-fill-color` - Defaults to 40% alpha of stroke color
 * `multi-color`
   * `--iconpark-stroke-color` - Defaults to `currentcolor`
-  * `--iconpark-fill-color` - Defaults to 20% alpha of stroke color
-  * `--iconpark-inner-stroke-color` - Defaults to 30% whiter than `currentcolor`
-  * `--iconpark-outer-fill-color` - Defaults to 50% blacker than `currentcolor`
+  * `--iconpark-fill-color` - Defaults to 40% alpha of stroke color
+  * `--iconpark-inner-stroke-color` - Defaults to 50% blacker than `currentcolor`
+  * `--iconpark-outer-fill-color` - Defaults to 70% whiter than `currentcolor`
 
 ## Development
 
