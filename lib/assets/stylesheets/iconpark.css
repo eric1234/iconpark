@@ -41,6 +41,8 @@
 }
 
 svg.ip {
+  width: 1em; height: 1em;
+
   &.outline {
     --iconpark-color-0: var(--iconpark-stroke-color);
     --iconpark-color-1: transparent;
