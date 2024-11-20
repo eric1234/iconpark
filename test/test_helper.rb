@@ -17,6 +17,8 @@ require "minitest/autorun"
 # Load actual library we are testing
 require_relative "../lib/iconpark"
 
+alias context describe
+
 # Custom expectations for testing
 module Minitest::Expectations
   # Ensure the expected content matches the given selector
