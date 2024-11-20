@@ -7,7 +7,43 @@ the Ruby on Rails asset pipeline. Tested with
 
 **WARNING** - This gem is a work in progress and has only been used in a very
 limited way. Unless you want to be involved in developing it, wait until this
-message is removed as everything is subject to change and things may not work.
+message is removed as everything is subject to change and things may break.
+
+## Why Iconpark?
+
+I wanted to put a brief message about why you should consider using Iconpark.
+There are a lot of good icon sets out there. So why this one?
+
+The biggest advantages are:
+
+* It's a large icon set. This is important as it gives you more choices in
+  choosing just the right icon to convey a concept. We've all had the trouble
+  of not having just the right icon and when that happens it defeats the purpose
+  of even using an icon. The larger the icon set the more likely you can avoid
+  this problem.
+* It is fully customizable with 4 "themes" (style) as well a full customization
+  of colors, stroke width, cap and join types resulting in almost endless
+  possibilities in style instead of being confined to pre-baked styles.
+
+A few comparisons to the biggest competitors:
+
+* [FontAwesome](https://fontawesome.com) - Although it looks impressive at
+  53K icons and counting. But many of those are the same icons but with just
+  different styles applied. Unique icons is about 13K. But now also many of
+  those require a license. If we just look at the free options we are down to
+  around 1,500 and you cannot use most of the customized versions, just the
+  classic style. Iconpark is 2658 icons and all are fully customizable.
+* [Boostrap Icons](https://icons.getbootstrap.com/) - They claim about 2K icons
+  but many of them are just "fill" versions of another icon (which is just a
+  point of customization in Iconpark). Unique icons are probably somewhere
+  between 1200-1500. Also the customization is very limited to just a "fill"
+  version for some icons and color customization only through currentcolor.
+* [heroicons](https://heroicons.com/) - By the makers of Tailwind and often used
+  with Tailwind. A very small iconset of only 316 with limited customized
+  versions of each icon.
+
+The final reason is that Iconpark is at this time not widely used so at least
+for now your app won't look like every other app.
 
 ## Installation
 
