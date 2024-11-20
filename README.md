@@ -12,7 +12,7 @@ message is removed as everything is subject to change and things may break.
 ## Why Iconpark?
 
 I wanted to put a brief message about why you should consider using Iconpark.
-There are a lot of good icon sets out there. So why this one?
+There are a lot of good icon sets out there. Why this one?
 
 The biggest advantages are:
 
