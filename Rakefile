@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
 require "bundler/gem_tasks"
+require 'rake/testtask'
 require "rubocop/rake_task"
+
+Rake::TestTask.new do |t|
+  t.test_files = FileList['test/*_test.rb']
+end
+
+task :default => :test
 
 RuboCop::RakeTask.new
 
@@ -16,7 +23,7 @@ end
 Rake::Task["build"].enhance ["icon_import"]
 
 desc "Load CSS Test through webserver"
-task :test do
+task :test_css do
   require "rack/builder"
   require "rack/static"
   require "rackup/server"

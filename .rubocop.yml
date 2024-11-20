@@ -1,4 +1,6 @@
-require: rubocop-rake
+require:
+  - rubocop-rake
+  - rubocop-minitest
 
 AllCops:
   NewCops: enable
@@ -13,6 +15,14 @@ Style/Documentation:
   Enabled: false
 Style/MethodDefParentheses:
   Enabled: false
+Style/HashSyntax:
+  Exclude:
+    - Rakefile
+Layout/SpaceInsideParens:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*_test.rb
 
 Gemspec/OrderedDependencies:
   Enabled: false

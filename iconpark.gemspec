@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative "lib/iconpark/version"
 
 Gem::Specification.new do |spec|
@@ -13,10 +11,12 @@ Gem::Specification.new do |spec|
   spec.files = Dir['lib/**/*.rb'] + Dir['lib/**/*.css'] + Dir['vendor/**/*.svg']
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "rubocop-rake"
-  spec.add_development_dependency "rack"
-  spec.add_development_dependency "rackup"
-  spec.add_development_dependency "launchy"
+  spec.add_dependency "rails"
+
+  %w[
+    debug minitest nokogiri rubocop rubocop-rake rubocop-minitest
+    rack rackup launchy rdoc
+  ].each do |dev_dep|
+    spec.add_development_dependency dev_dep
+  end
 end
