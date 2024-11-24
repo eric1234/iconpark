@@ -18,8 +18,14 @@ Style/MethodDefParentheses:
 Style/HashSyntax:
   Exclude:
     - Rakefile
+Style/Alias:
+  Enabled: false
+
 Layout/SpaceInsideParens:
   Enabled: false
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - test/**/*_test.rb
