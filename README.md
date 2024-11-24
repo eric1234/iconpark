@@ -1,6 +1,6 @@
-# Rails Iconpark Integration
+# Rails IconPark Integration
 
-A small gem to integrate [Iconpark](https://iconpark.oceanengine.com/home) with
+A small gem to integrate [IconPark](https://iconpark.oceanengine.com/home) with
 the Ruby on Rails asset pipeline. Tested with
 [propshaft](https://github.com/rails/propshaft) but it should work with
 [sprockets](https://github.com/rails/sprockets-rails).
@@ -9,9 +9,9 @@ the Ruby on Rails asset pipeline. Tested with
 limited way. Unless you want to be involved in developing it, wait until this
 message is removed as everything is subject to change and things may break.
 
-## Why Iconpark?
+## Why IconPark?
 
-I wanted to put a brief message about why you should consider using Iconpark.
+I wanted to put a brief message about why you should consider using IconPark.
 There are a lot of good icon sets out there. Why this one?
 
 The biggest advantages are:
@@ -32,17 +32,17 @@ A few comparisons to the biggest competitors:
   different styles applied. Unique icons is about 13K. But now also many of
   those require a license. If we just look at the free options we are down to
   around 1,500 and you cannot use most of the customized versions, just the
-  classic style. Iconpark is 2658 icons and all are fully customizable.
+  classic style. IconPark is 2658 icons and all are fully customizable.
 * [Boostrap Icons](https://icons.getbootstrap.com/) - They claim about 2K icons
   but many of them are just "fill" versions of another icon (which is just a
-  point of customization in Iconpark). Unique icons are probably somewhere
+  point of customization in IconPark). Unique icons are probably somewhere
   between 1200-1500. Also the customization is very limited to just a "fill"
   version for some icons and color customization only through currentcolor.
 * [heroicons](https://heroicons.com/) - By the makers of Tailwind and often used
   with Tailwind. A very small iconset of only 316 with limited customized
   versions of each icon.
 
-The final reason is that Iconpark is at this time not widely used so at least
+The final reason is that IconPark is at this time not widely used so at least
 for now your app won't look like every other app.
 
 ## Installation
@@ -63,7 +63,7 @@ following to your `application.css` file.
 ## Usage
 
 To place an icon on a page, use the `icon` helper. Any of the icons available
-in iconpark will work. Just the name is needed. You can leave off the SVG
+in IconPark will work. Just the name is needed. You can leave off the SVG
 extension. So:
 
 ```erb
@@ -77,8 +77,8 @@ advantages of an `img` tag (cached).
 
 ### Theming
 
-One of the big reasons for using iconpark is the customization allowed with
-iconpark. On their website you can customize the:
+One of the big reasons for using IconPark is the customization allowed with
+IconPark. On their website you can customize the:
 
 * **theme** - outline (default), filled, two-tone, multi-color
 * **colors**
@@ -159,5 +159,5 @@ https://github.com/eric1234/iconpark.
 ## License
 
 Although this software is released to the public domain (see the
-[UNLICENSE](UNLICENSE) file), the icons in Iconpark themselves are licensed
+[UNLICENSE](UNLICENSE) file), the icons in IconPark themselves are licensed
 under the Apache license.
