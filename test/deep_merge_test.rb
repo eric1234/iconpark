@@ -35,7 +35,7 @@ describe Iconpark::DeepMerge do
       expect( subject[:foo] ).must_equal :bar
     end
 
-    instance_eval &no_mutation_tests
+    instance_eval(&no_mutation_tests)
   end
 
   context 'array' do
@@ -54,7 +54,7 @@ describe Iconpark::DeepMerge do
       expect( subject[:foo] ).must_equal %i[bar baz boo moo]
     end
 
-    instance_eval &no_mutation_tests
+    instance_eval(&no_mutation_tests)
   end
 
   context 'nested hashes' do
@@ -85,18 +85,33 @@ describe Iconpark::DeepMerge do
       expect( inner_nested[:eat] ).must_equal :kibble
     end
 
-    instance_eval &no_mutation_tests
+    instance_eval(&no_mutation_tests)
   end
 
-  describe 'in place' do
-    let(:existing) { { foo: :bar } }
-    let(:other) { { baz: :boo} }
+  describe 'reverse deep merge' do
+    let(:existing) { { foo: :bar, baz: %i[cow moo], cat: { meow: :purr } } }
+    let(:other) { { foo: :boo, baz: %i[dog bark], cat: { zoom: :zam, meow: :bow } } }
 
-    subject { existing.deep_merge! other }
+    subject { existing.reverse_deep_merge other }
 
-    it 'replaces existing with merged hash' do
-      subject
-      expect( existing ).must_equal foo: :bar, baz: :boo
+    it 'deep merges with `other` as defaults' do
+      expect( subject ).must_equal({
+        foo: :bar, baz: %i[dog bark cow moo],
+        cat: { zoom: :zam, meow: :purr }
+      })
+    end
+
+    describe 'in place' do
+      subject { existing.reverse_deep_merge! other }
+
+      it 'updates receiver' do
+        merge
+
+        expect( existing ).must_equal({
+          foo: :bar, baz: %i[dog bark cow moo],
+          cat: { zoom: :zam, meow: :purr }
+        })
+      end
     end
   end
 

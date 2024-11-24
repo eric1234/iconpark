@@ -7,7 +7,8 @@ module Iconpark::DeepMerge
       merge other, &recursive
     end
 
-    def deep_merge!(other) = replace deep_merge other
+    def reverse_deep_merge(other) = other.deep_merge self
+    def reverse_deep_merge!(other) = replace reverse_deep_merge other
     def force_array!(key) = self[key] = Array(self[key])
   end
 

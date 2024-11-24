@@ -66,6 +66,13 @@ describe Iconpark::Helpers, :helper do
           end
         end
 
+        it 'prefers custom over default' do
+          Iconpark.with default_html_options: { title: 'Foo' } do
+            subject = helper.icon 'foo', title: 'Bar'
+            expect( subject ).must_have_selector 'svg[title=Bar]'
+          end
+        end
+
         it 'merges nested attributes' do
           Iconpark.with default_html_options: { data: { controller: 'foo' } } do
             subject = helper.icon('foo', data: { action: 'bar' })
@@ -75,7 +82,7 @@ describe Iconpark::Helpers, :helper do
 
         it 'concatenates classes' do
           Iconpark.with default_html_options: { class: %w[foo bar] } do
-            subject = helper.icon('foo', class: %w[baz boo])
+            subject = helper.icon 'foo', class: %w[baz boo]
             expect( subject ).must_have_selector 'svg.foo.bar.baz.boo'
           end
         end

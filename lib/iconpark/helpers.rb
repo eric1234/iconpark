@@ -5,7 +5,7 @@ module Iconpark::Helpers
     html_options.force_array! :class
     Iconpark.default_html_options.force_array! :class
 
-    html_options.deep_merge! Iconpark.default_html_options
+    html_options.reverse_deep_merge! Iconpark.default_html_options
 
     html_options[:class] << theme
     content_tag 'svg', **html_options do
