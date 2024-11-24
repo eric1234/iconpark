@@ -7,6 +7,7 @@ require 'nokogiri'
 # Dep is on Rails as a whole but these are the only parts we use
 require "action_view"
 require "active_support/core_ext/module/attribute_accessors"
+require "active_support/core_ext/kernel/concern"
 require "rails/engine"
 
 # Configure minitest to use spec syntax and autorun

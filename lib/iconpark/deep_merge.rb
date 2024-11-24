@@ -1,3 +1,5 @@
+# Similar to the `deep_merge` funcitonality in Rails only it will also merge
+# arrays contained in the hash.
 module Iconpark::DeepMerge
   refine Hash do
     def deep_merge other
@@ -10,7 +12,7 @@ module Iconpark::DeepMerge
   end
 
   refine Array do
-    alias merge concat
+    alias merge +
   end
 
   refine Object do

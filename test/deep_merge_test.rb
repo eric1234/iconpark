@@ -3,7 +3,21 @@ require_relative "test_helper"
 describe Iconpark::DeepMerge do
   using Iconpark::DeepMerge
 
+  let(:merge) { subject }
+
   subject { existing.deep_merge other }
+
+  no_mutation_tests = proc do
+    it 'does not mutate either hash' do
+      previous_existing = existing.deep_dup
+      previous_other = other.deep_dup
+
+      merge
+
+      expect( existing ).must_equal previous_existing
+      expect( other ).must_equal previous_other
+    end
+  end
 
   context 'regular value merging' do
     let(:existing) { { foo: :bar, baz: :boo } }
@@ -20,6 +34,8 @@ describe Iconpark::DeepMerge do
     it 'keeps existing key/values not in other hash' do
       expect( subject[:foo] ).must_equal :bar
     end
+
+    instance_eval &no_mutation_tests
   end
 
   context 'array' do
@@ -37,6 +53,8 @@ describe Iconpark::DeepMerge do
     it 'merges array if in both hashes' do
       expect( subject[:foo] ).must_equal %i[bar baz boo moo]
     end
+
+    instance_eval &no_mutation_tests
   end
 
   context 'nested hashes' do
@@ -66,6 +84,8 @@ describe Iconpark::DeepMerge do
       expect( inner_nested[:wag] ).must_equal :tail
       expect( inner_nested[:eat] ).must_equal :kibble
     end
+
+    instance_eval &no_mutation_tests
   end
 
   describe 'in place' do
